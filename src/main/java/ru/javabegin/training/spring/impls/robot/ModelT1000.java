@@ -6,7 +6,7 @@ import ru.javabegin.training.spring.interfaces.Head;
 import ru.javabegin.training.spring.interfaces.Leg;
 import ru.javabegin.training.spring.interfaces.Robot;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 extends BaseModel {
 
 	private Hand hand;
 	private Leg leg;
@@ -19,7 +19,7 @@ public class ModelT1000 implements Robot {
 	public ModelT1000() {
 	}
 
-	public ModelT1000(Hand hand, Leg leg, Head head) {
+	public ModelT1000 (Hand hand, Leg leg, Head head) {
 		super();
 		this.hand = hand;
 		this.leg = leg;
