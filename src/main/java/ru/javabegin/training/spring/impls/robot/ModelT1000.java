@@ -1,5 +1,6 @@
 package ru.javabegin.training.spring.impls.robot;
 
+import org.springframework.beans.factory.InitializingBean;
 import ru.javabegin.training.spring.interfaces.Hand;
 import ru.javabegin.training.spring.interfaces.Head;
 import ru.javabegin.training.spring.interfaces.Leg;
@@ -52,6 +53,16 @@ public class ModelT1000 implements Robot {
 		System.out.println("can play sound: " + soundEnabled);
 	}
 
+	public void initObject() {
+		System.out.println("Объект проинициализирован");
+	}
+	public void destroyObject() {
+		System.out.println("Объект разрушен");
+	}
+
+//	public void afterPropertiesSet() throws Exception {
+//		System.out.println("метод вызван");
+//	}
 
 	public void dance() {
 		System.out.println("T1000 is dancing!");
