@@ -7,5 +7,15 @@
 
     <import resource="t1000_context.xml"/>
 
+    <bean id = "t1000Conveyor" class = "ru.javabegin.training.spring.impls.conveyor.T1000Conveyor">
+        <lookup-method name = "createRobot" bean = "t1000"/>
+    </bean>
+
+    <bean id = "t1001" class = "ru.javabegin.training.spring.impls.robot.ModelT1000">
+        <replaced-method  name="action"  replacer="robotReplacer" />
+    </bean>
+
+    <bean id="robotReplacer" class="ru.javabegin.training.spring.impls.robot.RobotReplacer" />
+
 </beans>
 
