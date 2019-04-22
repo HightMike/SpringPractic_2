@@ -27,8 +27,7 @@
                 <!--</bean>-->
             <!--</list>-->
         <!--</property>-->
-    <!--</bean>-->/
-
+    <!--</bean>-->
 
 
     <bean id = "t1001Pool" class = "ru.javabegin.training.spring.impls.pool.T1000Pool">
