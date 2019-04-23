@@ -3,12 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" xmlns:c="http://www.springframework.org/schema/c"
        default-lazy-init="true"
+       default-autowire-candidates="false"
+
 >
 
 
     <import resource="sony_context.xml"/>
     <import resource="toshiba_context.xml"/>
-
 
     <bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" parent="baseModel" scope="prototype">
 
@@ -19,10 +20,21 @@
     </bean>
 
     <bean id="baseModel" abstract="true">
+
         <constructor-arg ref="sonyHand" />
         <constructor-arg ref="sonyLeg" />
         <constructor-arg ref="sonyHead" />
+
     </bean>
+
+    <bean id="t1002" class="ru.javabegin.training.spring.impls.robot.ModelT1000" parent="baseModel" scope="prototype">
+
+        <constructor-arg value="blue" index="3" type="java.lang.String" />
+        <constructor-arg value="2005" index="4" type="int" />
+        <constructor-arg value="true" index="5" type="boolean" />
+
+    </bean>
+
 
     <bean class = "ru.javabegin.training.spring.main.MyBeanProcessor">
 

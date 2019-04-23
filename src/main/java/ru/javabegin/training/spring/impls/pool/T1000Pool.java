@@ -6,13 +6,14 @@ import ru.javabegin.training.spring.interfaces.RobotPool;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class T1000Pool  {
 
-    private Collection<Robot> robotCollection;
+    private List<Robot> robotCollection;
 
-    public T1000Pool (Collection<Robot> robotCollection){
+    public T1000Pool (List<Robot> robotCollection){
         super();
         this.robotCollection = robotCollection;
     }
@@ -23,7 +24,7 @@ public class T1000Pool  {
         return robotCollection;
     }
 
-    public void setRobotCollection(Collection<Robot> robotCollection) {
+    public void setRobotCollection(List<Robot> robotCollection) {
         this.robotCollection = robotCollection;
     }
 //    //public Map<String, Robot> getRobotCollection() {
