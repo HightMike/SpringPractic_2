@@ -1,99 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       default-lazy-init="true"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
->
+    <context:annotation-config />
 
-    <import resource="t1000_context.xml"/>
-
-    <!--<bean id = "t1000Conveyor" class = "ru.javabegin.training.spring.impls.conveyor.T1000Conveyor">-->
-        <!--<lookup-method name = "createRobot" bean = "t1000"/>-->
-    <!--</bean>-->
-
-    <!--<bean id = "t1001" class = "ru.javabegin.training.spring.impls.robot.ModelT1000">-->
-        <!--<replaced-method  name="action"  replacer="robotReplacer" />-->
-    <!--</bean>-->
-
-    <bean id="list" class="java.util.ArrayList" >
-        <constructor-arg>
-            <list value-type="ru.javabegin.training.spring.interfaces.Robot">
-
-                <bean class="ru.javabegin.training.spring.impls.robot.ModelT1000"
-                      parent="baseModel">
-                    <constructor-arg value="green" index="3" type="java.lang.String"/>
-                    <constructor-arg value="2007" index="4" type="int"/>
-                    <constructor-arg value="false" index="5" type="boolean"/>
-                </bean>
-
-                <ref bean="t1000" />
-                <ref bean="t1002" />
+    <import resource="sony_context.xml"/>
+    <import resource="toshiba_context.xml"/>
 
 
-                <bean class="ru.javabegin.training.spring.impls.robot.ModelT1000"
-                      parent="baseModel">
-                    <constructor-arg value="gold" index="3" type="java.lang.String"/>
-                    <constructor-arg value="2007" index="4" type="int"/>
-                    <constructor-arg value="false" index="5" type="boolean"/>
-                </bean>
-            </list>
-        </constructor-arg>
+    <bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype">
+
     </bean>
 
-    <bean id = "t1000Pool" class = "ru.javabegin.training.spring.impls.pool.T1000Pool">
-            <constructor-arg ref="list"/>
-    </bean>
-
-        <!--<constructor-arg name="robotCollection">-->
-            <!--<list>-->
-                <!--<ref bean="t1000" />-->
-                <!--<bean class="ru.javabegin.training.spring.impls.robot.ModelT1000"-->
-                      <!--parent="baseModel">-->
-                    <!--<constructor-arg value="green" index="3" type="java.lang.String"/>-->
-                    <!--<constructor-arg value="2007" index="4" type="int"/>-->
-                    <!--<constructor-arg value="false" index="5" type="boolean"/>-->
-                <!--</bean>-->
-                <!--<bean class="ru.javabegin.training.spring.impls.robot.ModelT1000"-->
-                      <!--parent="baseModel">-->
-                    <!--<constructor-arg value="gold" index="3" type="java.lang.String"/>-->
-                    <!--<constructor-arg value="2007" index="4" type="int"/>-->
-                    <!--<constructor-arg value="false" index="5" type="boolean"/>-->
-                <!--</bean>-->
-            <!--</list>-->
-        <!--</constructor-arg>-->
-
-
-
-    <!--<bean id = "t1001Pool" class = "ru.javabegin.training.spring.impls.pool.T1000Pool">-->
-        <!--<constructor-arg name="robotCollection">-->
-            <!--<map>-->
-                <!--<entry key="2005" value-ref="t1000"/>-->
-                <!--<entry key="2006" value-ref="t1000"/>-->
-                <!--<entry key="2005">-->
-                    <!--<bean class="ru.javabegin.training.spring.impls.robot.ModelT1000" parent="baseModel">-->
-
-                        <!--<constructor-arg value="gold" index="3" type="java.lang.String" />-->
-                        <!--<constructor-arg value="2007" index="4" type="int" />-->
-                        <!--<constructor-arg value="true" index="5" type="boolean" />-->
-
-                    <!--</bean>-->
-
-                <!--</entry>-->
-
-            <!--</map>-->
-        <!--</constructor-arg>-->
-
-    <!--<bean id = "t1000GoldenPool" class = "ru.javabegin.training.spring.impls.pool.T1000Pool">-->
-
-        <!--<constructor-arg name ="robotCollection"-->
-            <!--value = "#{t1000Pool.robotCollection.?[color.toUpperCase() eq 'GOLD']}">-->
-        <!--</constructor-arg>-->
-
-    <!--</bean>-->
-
-    <!--</bean>-->
-
-    <!--<bean id="robotReplacer" class="ru.javabegin.training.spring.impls.robot.RobotReplacer" />-->
 
 </beans>
 
