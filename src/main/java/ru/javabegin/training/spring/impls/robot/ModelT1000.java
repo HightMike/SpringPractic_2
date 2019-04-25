@@ -29,7 +29,6 @@ public class ModelT1000 extends BaseModel {
 		this.soundEnabled = soundEnabled;
 	}
 
-	@Override
 	public void action() {
 		getHead().calc();
 		getHand().catchSomething();
@@ -49,6 +48,7 @@ public class ModelT1000 extends BaseModel {
 //	public void afterPropertiesSet() throws Exception {
 //		System.out.println("метод вызван");
 //	}
+
 
 	public void dance() {
 		System.out.println("T1000 is dancing!");

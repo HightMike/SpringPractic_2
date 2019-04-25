@@ -12,9 +12,18 @@
 
     <import resource="sony_context.xml"/>
     <import resource="toshiba_context.xml"/>
+    <import resource="t1000Pool_context.xml"/>
 
 
-    <bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype">
+
+    <bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype" autowire-candidate="false">
+
+    </bean>
+
+    <bean id="T1000Poolbean" class="ru.javabegin.training.spring.impls.pool.T1000Pool" scope="prototype"/>
+
+
+    <bean id="ColorRobot" class="ru.javabegin.training.spring.impls.pool.T1000Pool" >
 
     </bean>
 

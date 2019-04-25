@@ -1,8 +1,11 @@
 package ru.javabegin.training.spring.impls.pool;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import ru.javabegin.training.spring.impls.conveyor.T1000Conveyor;
 import ru.javabegin.training.spring.interfaces.Robot;
 import ru.javabegin.training.spring.interfaces.RobotPool;
+import ru.javabegin.training.spring.interfaces.T1000PoolQualifier;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,39 +14,25 @@ import java.util.Map;
 
 public class T1000Pool  {
 
-    private List<Robot> robotCollection;
+    T1000Pool () {
 
-    public T1000Pool (List<Robot> robotCollection){
-        super();
-        this.robotCollection = robotCollection;
     }
 
+    @Autowired
+    @T1000PoolQualifier(color=COLOR.BLUE, colorname = "blue")
+    Robot blueRobot;
 
 
-    public Collection<Robot> getRobotCollection() {
-        return robotCollection;
+    @Autowired
+    @T1000PoolQualifier(color=COLOR.GREEN, colorname = "green")
+    Robot greenRobot;
+
+    @Autowired
+    @T1000PoolQualifier(color=COLOR.RED, colorname = "red")
+    Robot redRobot;
+
+    public Robot getBlueRobot () {
+        return blueRobot;
     }
-
-    public void setRobotCollection(List<Robot> robotCollection) {
-        this.robotCollection = robotCollection;
-    }
-//    //public Map<String, Robot> getRobotCollection() {
-//        return robotCollection;
-//    }
-
-
-//    public void action() {
-//        for (Map.Entry<String, Robot> map : robotCollection.entrySet()) {
-//            System.out.println(map.getKey());
-//            map.getValue().action();
-//        }
-//    }
-
-    public void beginShow() {
-        for (Robot robot : robotCollection) {
-            robot.action();
-        }
-    }
-
-
 }
+

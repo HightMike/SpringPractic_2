@@ -10,8 +10,8 @@ import ru.javabegin.training.spring.interfaces.Robot;
 
 public abstract class BaseModel implements Robot {
 
-    @Autowired
-    @Qualifier("sonyHand")
+    @Autowired // внедряет объект в переменную hand
+    @Qualifier("sonyHand")  // по имени бина
     private Hand hand;
 
     @Autowired
@@ -39,24 +39,24 @@ public abstract class BaseModel implements Robot {
         return hand;
     }
 
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
+//    public void setHand(Hand hand) {
+//        this.hand = hand;
+//    }
 
     public Leg getLeg() {
         return leg;
     }
 
-    public void setLeg(Leg leg) {
-        this.leg = leg;
-    }
+//    public void setLeg(Leg leg) {
+//        this.leg = leg;
+//    }
 
     public Head getHead() {
         return head;
     }
 
-    public void setHead(Head head) {
-        this.head = head;
-    }
+//    public void setHead(Head head) {
+//        this.head = head;
+//    }
 
 }
