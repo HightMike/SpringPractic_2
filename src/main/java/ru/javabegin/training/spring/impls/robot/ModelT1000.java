@@ -3,14 +3,18 @@ package ru.javabegin.training.spring.impls.robot;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import ru.javabegin.training.spring.impls.sony.SonyHand;
 import ru.javabegin.training.spring.impls.sony.SonyHead;
 import ru.javabegin.training.spring.impls.sony.SonyLeg;
 import ru.javabegin.training.spring.interfaces.*;
+
+
+@Configuration
+@ComponentScan(basePackages = "ru.javabegin.training.spring",
+			includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Repository.class))
 
 
 @Repository
