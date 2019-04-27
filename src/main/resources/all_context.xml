@@ -9,23 +9,14 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <context:annotation-config />
-
-    <import resource="sony_context.xml"/>
-    <import resource="toshiba_context.xml"/>
-    <import resource="t1000Pool_context.xml"/>
+    <context:component-scan base-package="ru.javabegin.training.spring">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 
 
-
-    <bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype" autowire-candidate="false">
-
-    </bean>
-
-    <bean id="T1000Poolbean" class="ru.javabegin.training.spring.impls.pool.T1000Pool" scope="prototype"/>
+    </context:component-scan>
 
 
-    <bean id="ColorRobot" class="ru.javabegin.training.spring.impls.pool.T1000Pool" >
-
-    </bean>
+    <!--<bean id="t1000" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype" />-->
 
 
 </beans>

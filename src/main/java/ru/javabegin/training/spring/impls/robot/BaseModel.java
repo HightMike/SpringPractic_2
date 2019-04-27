@@ -11,17 +11,12 @@ import ru.javabegin.training.spring.interfaces.Robot;
 public abstract class BaseModel implements Robot {
 
     @Autowired // внедряет объект в переменную hand
-    @Qualifier("sonyHand")  // по имени бина
     private Hand hand;
 
     @Autowired
-    @Qualifier("sonyLeg")
-
     private Leg leg;
 
     @Autowired
-    @Qualifier("sonyGoldenHead")
-
     private Head head;
 
     public BaseModel() {
